@@ -1,13 +1,10 @@
 import React, {Component} from 'react'
+import Button from '@material-ui/core/Button'
 
 const prefix = {
     10:"A", 11:"B", 12:"C", 13:"D", 14:"E", 15:"F", 16:"G", 17:"H", 18:"I", 19:"J",
     20:"K", 21:"L", 22:"M", 23:"N", 24:"O", 25:"P", 26:"Q", 27:"R", 28:"S", 29:"T",
-    30:"U", 31:"V", 32:"W", 33:"X", 34:"Y", 35:"Z", 36:" ", 37:" ", 38:" ", 39:" ", 
-    40:" ", 41:" ", 42:" ", 43:" ", 44:" ", 45:" ", 46:" ", 47:" ", 48:" ", 49:" ", 
-    50:" ", 51:" ", 52:" ", 53:" ", 54:" ", 55:" ", 56:" ", 57:" ", 58:" ", 59:" ", 
-    60:" ", 61:" ", 62:" ", 63:" ", 64:" ", 65:" ", 66:" ", 67:" ", 68:" ", 69:" ", 
-    70:" ", 71:" ", 72:" ", 73:" ", 74:" ", 75:" ", 76:" ", 77:" ", 78:" ", 79:" "
+    30:"U", 31:"V", 32:"W", 33:"X", 34:"Y", 35:"Z", 36:" "
   };
 
 class Hkid extends Component {
@@ -25,9 +22,11 @@ class Hkid extends Component {
         /*------------------------prefix------------------------*/
         for (var i = 0; i < 2; i++) {
             if (i === 0) {
-                var randPrefix = this.randNum(36, 10);
-                checkDigit += 9*randPrefix;
-                randHkid += prefix[randPrefix];
+                if (this.randNum(100, 0) < 35) {
+                    var randPrefix = this.randNum(36, 10);
+                    checkDigit += 9*randPrefix;
+                    randHkid += prefix[randPrefix];
+                }
             } else {
                 randPrefix = this.randNum(35, 10);
                 checkDigit += 8*randPrefix;
@@ -69,7 +68,7 @@ class Hkid extends Component {
         return(
             <div>
                 <p>{this.state.count}</p>
-                <button onClick={this.updateHkid}>Generate HKID</button>
+                <button className="genHkidButton" onClick={this.updateHkid}>Generate HKID</button>
             </div>
         )
     }

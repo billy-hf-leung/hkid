@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
+
+@font-face {
+    font-family: 'Josefin Sans', cursive;
+    src: url(https://fonts.googleapis.com/css?family=Josefin+Sans);
+}
+
+body, html{
+    height: 100%;
+    margin: 0;
+    background-image: linear-gradient(to right bottom, #051937, #004d7a, #008793, #00bf72, #a8eb12);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.genHkidButton {
+    font-size: 16px;
+    padding: 14px 40px;
+    border-radius: 12px;
+    border-width: 0px;
+}
